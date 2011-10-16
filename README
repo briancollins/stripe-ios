@@ -1,3 +1,27 @@
-This SDK allows you to authorize a Credit Card on an iOS device using the Stripe API.
+This SDK allows you to authorize a Credit Card on an iOS 5.0 device using the Stripe API.
+
+Usage is a simple asynchronous call:
+
+#import "Stripe.h"
+
+StripeConnection *stripe = [StripeConnection connectionWithPublishableKey:@"pk_dl4LcpeAxUEPHN3FxzuAQQmhCGmx5"];
+
+StripeCard *card =      [[StripeCard alloc] init];
+card.number =           @"4111111111111111";
+card.name =             @"Bob Dylan";
+card.cardSecurityCode = "010";
+card.expiryMonth =      [NSNumber numberWithInteger:2];
+card.expiryYear =       [NSNumber numberWithInteger:2014];
+
+[stripe performRequestWithCard:card 
+                 amountInCents:[NSNumber numberWithInteger:200] 
+                       success:^(StripeResponse *token) 
+     {
+         /* handle success */
+     }
+                         error:^(NSError *error) 
+     {
+         /* handle failure */
+     }];
 
 Please build the "example" target for an example of it in action.
