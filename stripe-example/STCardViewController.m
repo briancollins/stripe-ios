@@ -68,7 +68,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (component == 0)
-        return [[NSNumber numberWithInteger:row + 1] stringValue];
+        return [NSString stringWithFormat:@"%02d", row + 1];
     else {
         NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:[NSDate date]];
         return [[NSNumber numberWithInteger:[components year] + row] stringValue];
@@ -82,7 +82,7 @@
     NSString *year = [self pickerView:aPickerView 
                           titleForRow:[self.pickerView selectedRowInComponent:1]
                          forComponent:1];
-    self.expiryField.text = [NSString stringWithFormat:@"%@/%@", month, year];
+    self.expiryField.text = [NSString stringWithFormat:@"%02d/%@", [month integerValue], year];
 }
 
 
