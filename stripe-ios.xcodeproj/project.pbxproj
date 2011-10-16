@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B9FA3FC144AA9CE004D6067 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9FA3FB144AA9CE004D6067 /* Foundation.framework */; };
+		3B9FA40E144AAA5F004D6067 /* Stripe.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B9FA40C144AAA5F004D6067 /* Stripe.h */; };
+		3B9FA40F144AAA5F004D6067 /* Stripe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA40D144AAA5F004D6067 /* Stripe.m */; };
+		3B9FA41A144AACAF004D6067 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9FA419144AACAF004D6067 /* UIKit.framework */; };
+		3B9FA41B144AACAF004D6067 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9FA3FB144AA9CE004D6067 /* Foundation.framework */; };
+		3B9FA41D144AACAF004D6067 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9FA41C144AACAF004D6067 /* CoreGraphics.framework */; };
+		3B9FA435144AAD01004D6067 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA430144AAD01004D6067 /* main.m */; };
+		3B9FA437144AAD01004D6067 /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA434144AAD01004D6067 /* STAppDelegate.m */; };
+		3B9FA438144AAD6E004D6067 /* libstripe-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9FA3F8144AA9CE004D6067 /* libstripe-ios.a */; };
+		3B9FA442144AAE13004D6067 /* STRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA441144AAE13004D6067 /* STRootViewController.m */; };
+		3B9FA44A144ABB74004D6067 /* STBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA448144ABB74004D6067 /* STBase64.m */; };
+		3B9FA453144AC62B004D6067 /* STCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA451144AC62B004D6067 /* STCardViewController.m */; };
+		3B9FA454144AC62B004D6067 /* STCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9FA452144AC62B004D6067 /* STCardViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B9FA439144AAD73004D6067 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B9FA3EF144AA9CE004D6067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B9FA3F7144AA9CE004D6067;
+			remoteInfo = "stripe-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B9FA3F8144AA9CE004D6067 /* libstripe-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstripe-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B9FA3FB144AA9CE004D6067 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3B9FA40A144AAA4B004D6067 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
+		3B9FA40C144AAA5F004D6067 /* Stripe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stripe.h; sourceTree = "<group>"; };
+		3B9FA40D144AAA5F004D6067 /* Stripe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stripe.m; sourceTree = "<group>"; };
+		3B9FA417144AACAF004D6067 /* stripe-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stripe-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B9FA419144AACAF004D6067 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3B9FA41C144AACAF004D6067 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3B9FA430144AAD01004D6067 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3B9FA431144AAD01004D6067 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
+		3B9FA432144AAD01004D6067 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B9FA433144AAD01004D6067 /* STAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAppDelegate.h; sourceTree = "<group>"; };
+		3B9FA434144AAD01004D6067 /* STAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
+		3B9FA440144AAE13004D6067 /* STRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRootViewController.h; sourceTree = "<group>"; };
+		3B9FA441144AAE13004D6067 /* STRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootViewController.m; sourceTree = "<group>"; };
+		3B9FA447144ABB74004D6067 /* STBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBase64.h; sourceTree = "<group>"; };
+		3B9FA448144ABB74004D6067 /* STBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBase64.m; sourceTree = "<group>"; };
+		3B9FA450144AC62B004D6067 /* STCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCardViewController.h; sourceTree = "<group>"; };
+		3B9FA451144AC62B004D6067 /* STCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCardViewController.m; sourceTree = "<group>"; };
+		3B9FA452144AC62B004D6067 /* STCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STCardViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B9FA3F5144AA9CE004D6067 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9FA3FC144AA9CE004D6067 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B9FA414144AACAF004D6067 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9FA438144AAD6E004D6067 /* libstripe-ios.a in Frameworks */,
+				3B9FA41A144AACAF004D6067 /* UIKit.framework in Frameworks */,
+				3B9FA41B144AACAF004D6067 /* Foundation.framework in Frameworks */,
+				3B9FA41D144AACAF004D6067 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B9FA3ED144AA9CE004D6067 = {
+			isa = PBXGroup;
+			children = (
+				3B9FA408144AAA4B004D6067 /* src */,
+				3B9FA42E144AAD01004D6067 /* stripe-example */,
+				3B9FA3FA144AA9CE004D6067 /* Frameworks */,
+				3B9FA3F9144AA9CE004D6067 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B9FA3F9144AA9CE004D6067 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FA3F8144AA9CE004D6067 /* libstripe-ios.a */,
+				3B9FA417144AACAF004D6067 /* stripe-example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B9FA3FA144AA9CE004D6067 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FA3FB144AA9CE004D6067 /* Foundation.framework */,
+				3B9FA419144AACAF004D6067 /* UIKit.framework */,
+				3B9FA41C144AACAF004D6067 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B9FA408144AAA4B004D6067 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FA409144AAA4B004D6067 /* base */,
+				3B9FA40C144AAA5F004D6067 /* Stripe.h */,
+				3B9FA40D144AAA5F004D6067 /* Stripe.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		3B9FA409144AAA4B004D6067 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FA40A144AAA4B004D6067 /* prefix.pch */,
+				3B9FA447144ABB74004D6067 /* STBase64.h */,
+				3B9FA448144ABB74004D6067 /* STBase64.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		3B9FA42E144AAD01004D6067 /* stripe-example */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FA42F144AAD01004D6067 /* base */,
+				3B9FA432144AAD01004D6067 /* Info.plist */,
+				3B9FA433144AAD01004D6067 /* STAppDelegate.h */,
+				3B9FA434144AAD01004D6067 /* STAppDelegate.m */,
+				3B9FA440144AAE13004D6067 /* STRootViewController.h */,
+				3B9FA441144AAE13004D6067 /* STRootViewController.m */,
+				3B9FA450144AC62B004D6067 /* STCardViewController.h */,
+				3B9FA451144AC62B004D6067 /* STCardViewController.m */,
+				3B9FA452144AC62B004D6067 /* STCardViewController.xib */,
+			);
+			path = "stripe-example";
+			sourceTree = "<group>";
+		};
+		3B9FA42F144AAD01004D6067 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				3B9FA430144AAD01004D6067 /* main.m */,
+				3B9FA431144AAD01004D6067 /* prefix.pch */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3B9FA3F6144AA9CE004D6067 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9FA40E144AAA5F004D6067 /* Stripe.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3B9FA3F7144AA9CE004D6067 /* stripe-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B9FA405144AA9CE004D6067 /* Build configuration list for PBXNativeTarget "stripe-ios" */;
+			buildPhases = (
+				3B9FA3F4144AA9CE004D6067 /* Sources */,
+				3B9FA3F5144AA9CE004D6067 /* Frameworks */,
+				3B9FA3F6144AA9CE004D6067 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "stripe-ios";
+			productName = "stripe-ios";
+			productReference = 3B9FA3F8144AA9CE004D6067 /* libstripe-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3B9FA416144AACAF004D6067 /* stripe-example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B9FA42C144AACAF004D6067 /* Build configuration list for PBXNativeTarget "stripe-example" */;
+			buildPhases = (
+				3B9FA413144AACAF004D6067 /* Sources */,
+				3B9FA414144AACAF004D6067 /* Frameworks */,
+				3B9FA415144AACAF004D6067 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B9FA43A144AAD73004D6067 /* PBXTargetDependency */,
+			);
+			name = "stripe-example";
+			productName = "stripe-example";
+			productReference = 3B9FA417144AACAF004D6067 /* stripe-example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B9FA3EF144AA9CE004D6067 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 3B9FA3F2144AA9CE004D6067 /* Build configuration list for PBXProject "stripe-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3B9FA3ED144AA9CE004D6067;
+			productRefGroup = 3B9FA3F9144AA9CE004D6067 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B9FA3F7144AA9CE004D6067 /* stripe-ios */,
+				3B9FA416144AACAF004D6067 /* stripe-example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B9FA415144AACAF004D6067 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9FA454144AC62B004D6067 /* STCardViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B9FA3F4144AA9CE004D6067 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9FA40F144AAA5F004D6067 /* Stripe.m in Sources */,
+				3B9FA44A144ABB74004D6067 /* STBase64.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B9FA413144AACAF004D6067 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9FA435144AAD01004D6067 /* main.m in Sources */,
+				3B9FA437144AAD01004D6067 /* STAppDelegate.m in Sources */,
+				3B9FA442144AAE13004D6067 /* STRootViewController.m in Sources */,
+				3B9FA453144AC62B004D6067 /* STCardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B9FA43A144AAD73004D6067 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B9FA3F7144AA9CE004D6067 /* stripe-ios */;
+			targetProxy = 3B9FA439144AAD73004D6067 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3B9FA403144AA9CE004D6067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3B9FA404144AA9CE004D6067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B9FA406144AA9CE004D6067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/stripe_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = src/base/prefix.pch;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3B9FA407144AA9CE004D6067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/stripe_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = src/base/prefix.pch;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3B9FA42A144AACAF004D6067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stripe-example/base/prefix.pch";
+				INFOPLIST_FILE = "stripe-example/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3B9FA42B144AACAF004D6067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stripe-example/base/prefix.pch";
+				INFOPLIST_FILE = "stripe-example/Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B9FA3F2144AA9CE004D6067 /* Build configuration list for PBXProject "stripe-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B9FA403144AA9CE004D6067 /* Debug */,
+				3B9FA404144AA9CE004D6067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B9FA405144AA9CE004D6067 /* Build configuration list for PBXNativeTarget "stripe-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B9FA406144AA9CE004D6067 /* Debug */,
+				3B9FA407144AA9CE004D6067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B9FA42C144AACAF004D6067 /* Build configuration list for PBXNativeTarget "stripe-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B9FA42A144AACAF004D6067 /* Debug */,
+				3B9FA42B144AACAF004D6067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B9FA3EF144AA9CE004D6067 /* Project object */;
+}
