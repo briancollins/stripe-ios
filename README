@@ -1,0 +1,3 @@
+This SDK allows you to authorize a Credit Card on an iOS device using the Stripe API.
+
+Please build the "example" target for an example of it in action.
