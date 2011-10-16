@@ -2,7 +2,7 @@
 #import "STCardViewController.h"
 
 @implementation STCardViewController
-@synthesize stripeConnection, nameField, numberField, expiryField, CVCField, pickerView, keyboardToolbar, delegate;
+@synthesize stripeConnection, nameField, numberField, expiryField, CVCField, pickerView, keyboardToolbar, delegate, segmentedControl, fields = _fields;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
@@ -22,6 +22,7 @@
     self.nameField.inputAccessoryView = self.keyboardToolbar;
     self.nameField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.nameField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    self.nameField.returnKeyType = UIReturnKeyNext;
     
     self.numberField.inputAccessoryView = self.keyboardToolbar;
     self.numberField.keyboardType = UIKeyboardTypeNumberPad;
@@ -31,29 +32,67 @@
     
     self.CVCField.inputAccessoryView = self.keyboardToolbar;
     self.CVCField.keyboardType = UIKeyboardTypeNumberPad;
+    self.CVCField.returnKeyType = UIReturnKeyGo;
+    
+    self.fields = [NSArray arrayWithObjects:
+                   self.nameField,
+                   self.numberField,
+                   self.expiryField,
+                   self.CVCField,
+                   nil];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSInteger i = [self.fields indexOfObject:textField];
+    if (i < self.fields.count - 1) {
+        [[self.fields objectAtIndex:i + 1] becomeFirstResponder];
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    NSInteger i = [self.fields indexOfObject:textField];
+    if (i == self.fields.count - 1) {
+        [self.segmentedControl setEnabled:YES forSegmentAtIndex:0];
+        [self.segmentedControl setEnabled:NO forSegmentAtIndex:1];
+    } else if (i == 0) {
+        [self.segmentedControl setEnabled:NO forSegmentAtIndex:0];
+        [self.segmentedControl setEnabled:YES forSegmentAtIndex:1];
+    } else {
+        [self.segmentedControl setEnabled:YES forSegmentAtIndex:0];
+        [self.segmentedControl setEnabled:YES forSegmentAtIndex:1];
+    }
+    
+    return YES;
+}
+
+- (void)viewDidUnload {
+    self.fields = nil;
+    [super viewDidUnload];
 }
 
 - (IBAction)fieldSelected:(UISegmentedControl *)control {
+    NSInteger idx = NSNotFound;
+    NSInteger i = 0;
+    for (UIResponder *r in self.fields) {
+        if (r.isFirstResponder) {
+            idx = i;
+            break;
+        }
+        
+        i++;
+    }
+    
+    if (idx == NSNotFound) return;
+
     if (control.selectedSegmentIndex == 0) {
-        if (self.numberField.isFirstResponder) {
-            [self.nameField becomeFirstResponder];
-            
-        } else if (self.expiryField.isFirstResponder) {
-            [self.numberField becomeFirstResponder];
-        } else if (self.CVCField.isFirstResponder) {
-            [self.expiryField becomeFirstResponder];
+        if (idx > 0) {
+            [[self.fields objectAtIndex:idx - 1] becomeFirstResponder];
         }
     } else {
-        
-        if (self.nameField.isFirstResponder) {
-            [self.numberField becomeFirstResponder];
-            
-        } else if (self.numberField.isFirstResponder) {
-            [self.expiryField becomeFirstResponder];
-            
-        } else if (self.expiryField.isFirstResponder) {
-            
-            [self.CVCField becomeFirstResponder];
+        if (idx < self.fields.count - 1) {
+            [[self.fields objectAtIndex:idx + 1] becomeFirstResponder];
         }
     }
 }
