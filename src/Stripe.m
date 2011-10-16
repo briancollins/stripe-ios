@@ -69,7 +69,7 @@
 
 - (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
     NSURL *url = [[NSURL URLWithString:
-                   [NSString stringWithFormat:kStripeAPIBase, self.publishableKey]]
+                   [NSString stringWithFormat:kStripeAPIBase, [self escapedString:self.publishableKey]]]
                   URLByAppendingPathComponent:kStripeTokenPath];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -82,7 +82,11 @@
                            completionHandler:^(NSURLResponse *response, NSData *body, NSError *requestError) 
     {
         if (!response && requestError) {
-            error(requestError);
+            if ([requestError.domain isEqualToString:@"NSURLErrorDomain"] && requestError.code == -1012) {
+                error([NSError errorWithDomain:@"Stripe" code:0 userInfo:
+                       [NSDictionary dictionaryWithObject:@"Authentication failed" forKey:@"message"]]);
+            } else
+                error(requestError);
             
             return;
         }

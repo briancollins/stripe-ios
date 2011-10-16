@@ -132,6 +132,7 @@
              [alert show];
              
          } else {
+             /* Handle network error here */
              NSLog(@"%@", error);
          }
      }];
