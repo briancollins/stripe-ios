@@ -17,7 +17,6 @@
 		3B9FA437144AAD01004D6067 /* STAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA434144AAD01004D6067 /* STAppDelegate.m */; };
 		3B9FA438144AAD6E004D6067 /* libstripe-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9FA3F8144AA9CE004D6067 /* libstripe-ios.a */; };
 		3B9FA442144AAE13004D6067 /* STRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA441144AAE13004D6067 /* STRootViewController.m */; };
-		3B9FA44A144ABB74004D6067 /* STBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA448144ABB74004D6067 /* STBase64.m */; };
 		3B9FA453144AC62B004D6067 /* STCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9FA451144AC62B004D6067 /* STCardViewController.m */; };
 		3B9FA454144AC62B004D6067 /* STCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9FA452144AC62B004D6067 /* STCardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -48,8 +47,6 @@
 		3B9FA434144AAD01004D6067 /* STAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAppDelegate.m; sourceTree = "<group>"; };
 		3B9FA440144AAE13004D6067 /* STRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRootViewController.h; sourceTree = "<group>"; };
 		3B9FA441144AAE13004D6067 /* STRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootViewController.m; sourceTree = "<group>"; };
-		3B9FA447144ABB74004D6067 /* STBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBase64.h; sourceTree = "<group>"; };
-		3B9FA448144ABB74004D6067 /* STBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBase64.m; sourceTree = "<group>"; };
 		3B9FA450144AC62B004D6067 /* STCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCardViewController.h; sourceTree = "<group>"; };
 		3B9FA451144AC62B004D6067 /* STCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCardViewController.m; sourceTree = "<group>"; };
 		3B9FA452144AC62B004D6067 /* STCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STCardViewController.xib; sourceTree = "<group>"; };
@@ -121,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				3B9FA40A144AAA4B004D6067 /* prefix.pch */,
-				3B9FA447144ABB74004D6067 /* STBase64.h */,
-				3B9FA448144ABB74004D6067 /* STBase64.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -244,7 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B9FA40F144AAA5F004D6067 /* Stripe.m in Sources */,
-				3B9FA44A144ABB74004D6067 /* STBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +385,7 @@
 				3B9FA42B144AACAF004D6067 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

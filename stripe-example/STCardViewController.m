@@ -119,16 +119,21 @@
          [self.navigationController dismissModalViewControllerAnimated:YES];
          [self.delegate addToken:token.token];
      }
-                                          failure:^(NSDictionary *failure) 
+                                          error:^(NSError *error) 
      {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
          sender.enabled = YES;
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                          message:[[failure objectForKey:@"error"] 
-                                                                   objectForKey:@"message"]
-                                                         delegate:nil 
-                                                cancelButtonTitle:@"OK" otherButtonTitles:nil];
-         [alert show];
+         
+         if ([error.domain isEqualToString:@"Stripe"]) {
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                             message:[error.userInfo objectForKey:@"message"]
+                                                            delegate:nil 
+                                                   cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+             
+         } else {
+             NSLog(@"%@", error);
+         }
      }];
 
 }

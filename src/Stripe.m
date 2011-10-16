@@ -1,5 +1,4 @@
 #import "Stripe.h"
-#import "STBase64.h"
 
 @interface StripeCard ()
 @property (readonly) NSDictionary *attributes;
@@ -68,34 +67,39 @@
     return [body dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency success:(void (^)(StripeResponse *response))success failure:(void (^)(NSDictionary *failure))failure {
-    NSURL *url = [[NSURL URLWithString:kStripeAPIBase] URLByAppendingPathComponent:kStripeTokenPath];
+- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
+    NSURL *url = [[NSURL URLWithString:
+                   [NSString stringWithFormat:kStripeAPIBase, self.publishableKey]]
+                  URLByAppendingPathComponent:kStripeTokenPath];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPBody = [self HTTPBodyWithCard:card amountInCents:amount currency:currency];
     
-    NSString *basicAuth = [NSString stringWithFormat:@"Basic %@", 
-                           [STBase64 encode:[NSString stringWithFormat:@"%@:", self.publishableKey]]];
-    [request setValue:basicAuth forHTTPHeaderField:@"Authorization"];
     [request setHTTPMethod:@"POST"];
     
     [NSURLConnection sendAsynchronousRequest:request 
                                        queue:[NSOperationQueue mainQueue] 
-                           completionHandler:^(NSURLResponse *response, NSData *body, NSError *error) 
+                           completionHandler:^(NSURLResponse *response, NSData *body, NSError *requestError) 
     {
+        if (!response && requestError) {
+            error(requestError);
+            
+            return;
+        }
+        
         NSDictionary *unserialized = [NSJSONSerialization JSONObjectWithData:body options:0 error:NULL];
         if ([(NSHTTPURLResponse *)response statusCode] == 200) {
             StripeResponse *stripeResponse = [[StripeResponse alloc] initWithResponseDictionary:unserialized];
         
             success(stripeResponse);
         } else {
-            failure(unserialized);
+            error([NSError errorWithDomain:@"Stripe" code:0 userInfo:[unserialized objectForKey:@"error"]]);
         }
     }];
 }
 
-- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount success:(void (^)(StripeResponse *response))success failure:(void (^)(NSDictionary *failure))failure {
-    [self performRequestWithCard:card amountInCents:amount currency:@"usd" success:success failure:failure];
+- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
+    [self performRequestWithCard:card amountInCents:amount currency:@"usd" success:success error:error];
 }
 
 @end

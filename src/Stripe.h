@@ -1,4 +1,4 @@
-#define kStripeAPIBase @"https://api.stripe.com/v1"
+#define kStripeAPIBase @"https://%@:@api.stripe.com/v1"
 #define kStripeTokenPath @"tokens"
 
 @interface StripeCard : NSObject
@@ -39,8 +39,8 @@
 
 + (StripeConnection *)connectionWithPublishableKey:(NSString *)publishableKey;
 - (id)initWithPublishableKey:(NSString *)publishableKey;
-- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency success:(void (^)(StripeResponse *response))success failure:(void (^)(NSDictionary *failure))failure;
-- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount success:(void (^)(StripeResponse *response))success failure:(void (^)(NSDictionary *failure))failure;
+- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error;
+- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error;
 
 @end
 
