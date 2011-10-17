@@ -134,6 +134,13 @@
     return @"Add Credit Card";
 }
 
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    if (component == 0)
+        return 50.0f;
+    else
+        return 80.0f;
+}
+
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
     StripeCard *card      = [[StripeCard alloc] init];
     card.number           = self.numberField.text;
@@ -152,11 +159,11 @@
     
     [self.stripeConnection performRequestWithCard:card 
                                     amountInCents:[NSNumber numberWithInteger:200] 
-                                          success:^(StripeResponse *token) 
+                                          success:^(StripeResponse *response) 
      {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
          [self.navigationController dismissModalViewControllerAnimated:YES];
-         [self.delegate addToken:token.token];
+         [self.delegate addResponse:response];
      }
                                           error:^(NSError *error) 
      {

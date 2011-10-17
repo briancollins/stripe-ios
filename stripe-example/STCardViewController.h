@@ -1,7 +1,7 @@
-@class StripeConnection;
+@class StripeConnection, StripeResponse;
 
 @protocol STCardViewControllerDelegate <NSObject>
-- (void)addToken:(NSString *)token;
+- (void)addResponse:(StripeResponse *)response;
 @end
 
 @interface STCardViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>

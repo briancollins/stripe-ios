@@ -4,11 +4,11 @@
 
 @interface STRootViewController ()
 @property (strong, nonatomic) StripeConnection *stripeConnection;
-@property (strong, nonatomic) NSMutableArray *tokens;
+@property (strong, nonatomic) NSMutableArray *responses;
 @end
 
 @implementation STRootViewController
-@synthesize stripeConnection = _stripeConnection, tokens;
+@synthesize stripeConnection = _stripeConnection, responses;
 
 - (id)init {
     if ((self = [super initWithStyle:UITableViewStylePlain])) {
@@ -17,7 +17,7 @@
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                       target:self
                                                       action:@selector(addCard:)];
-        self.tokens = [NSMutableArray array];
+        self.responses = [NSMutableArray array];
     }
     
     return self;
@@ -35,7 +35,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tokens.count;
+    return self.responses.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -46,15 +46,19 @@
     static NSString *identifier = @"TokenCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
     }
     
-    cell.textLabel.text = [self.tokens objectAtIndex:indexPath.row];
+    StripeResponse *response = [self.responses objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ ending with %@", response.card.type, response.card.lastFourDigits];
+    cell.detailTextLabel.text = response.token;
     return cell;
 }
 
-- (void)addToken:(NSString *)token {
-    [self.tokens insertObject:token atIndex:0];
+- (void)addResponse:(StripeResponse *)response {
+    [self.responses insertObject:response atIndex:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
