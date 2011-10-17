@@ -24,7 +24,7 @@
 }
 
 - (void)addCard:(id)sender {
-    STCardViewController *cardViewController = [[STCardViewController alloc] initWithNibName:@"STCardViewController" bundle:[NSBundle mainBundle]];
+    STCardViewController *cardViewController = [[STCardViewController alloc] init];
     cardViewController.stripeConnection = self.stripeConnection;
     cardViewController.delegate = (id <STCardViewControllerDelegate>)self;
     

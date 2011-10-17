@@ -4,8 +4,8 @@
 @implementation STCardViewController
 @synthesize stripeConnection, nameField, numberField, expiryField, CVCField, pickerView, keyboardToolbar, delegate, segmentedControl, fields = _fields;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+- (id)init {
+    if ((self = [super init])) {
         self.navigationItem.leftBarButtonItem = 
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
     }
