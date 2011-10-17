@@ -82,7 +82,8 @@
                            completionHandler:^(NSURLResponse *response, NSData *body, NSError *requestError) 
     {
         if (!response && requestError) {
-            if ([requestError.domain isEqualToString:@"NSURLErrorDomain"] && requestError.code == -1012) {
+            if ([requestError.domain isEqualToString:@"NSURLErrorDomain"] && 
+                requestError.code == NSURLErrorUserCancelledAuthentication) {
                 error([NSError errorWithDomain:@"Stripe" code:0 userInfo:
                        [NSDictionary dictionaryWithObject:@"Authentication failed" forKey:@"message"]]);
             } else
