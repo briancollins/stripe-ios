@@ -110,20 +110,20 @@
 
 
 @implementation StripeCard
-@synthesize number, expiryMonth, expiryYear, cardSecurityCode, name, addressLine1, addressLine2, addressZip, addressState, addressCountry, country, cvcCheck, lastFourDigits, type;
+@synthesize number, expiryMonth, expiryYear, securityCode, name, addressLine1, addressLine2, addressZip, addressState, addressCountry, country, cvcCheck, lastFourDigits, type;
 
 - (NSDictionary *)attributes {
     return [NSDictionary dictionaryWithObjectsAndKeys:
-            self.number           ? self.number : [NSNull null],           @"number",
-            self.expiryMonth      ? self.expiryMonth : [NSNull null],      @"exp_month",
-            self.expiryYear       ? self.expiryYear : [NSNull null],       @"exp_year",
-            self.cardSecurityCode ? self.cardSecurityCode : [NSNull null], @"cvc",
-            self.name             ? self.name : [NSNull null],             @"name",
-            self.addressLine1     ? self.addressLine1 : [NSNull null],     @"address_line1",
-            self.addressLine2     ? self.addressLine2 : [NSNull null],     @"address_line2",
-            self.addressZip       ? self.addressZip : [NSNull null],       @"address_zip",
-            self.addressState     ? self.addressState : [NSNull null],     @"address_state",
-            self.addressCountry   ? self.addressCountry : [NSNull null],   @"address_country",
+            self.number         ? self.number : [NSNull null],         @"number",
+            self.expiryMonth    ? self.expiryMonth : [NSNull null],    @"exp_month",
+            self.expiryYear     ? self.expiryYear : [NSNull null],     @"exp_year",
+            self.securityCode   ? self.securityCode : [NSNull null],   @"cvc",
+            self.name           ? self.name : [NSNull null],           @"name",
+            self.addressLine1   ? self.addressLine1 : [NSNull null],   @"address_line1",
+            self.addressLine2   ? self.addressLine2 : [NSNull null],   @"address_line2",
+            self.addressZip     ? self.addressZip : [NSNull null],     @"address_zip",
+            self.addressState   ? self.addressState : [NSNull null],   @"address_state",
+            self.addressCountry ? self.addressCountry : [NSNull null], @"address_country",
             nil];
 }
 

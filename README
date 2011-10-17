@@ -6,12 +6,12 @@ Usage is a simple asynchronous call:
 
 StripeConnection *stripe = [StripeConnection connectionWithPublishableKey:@"pk_dl4LcpeAxUEPHN3FxzuAQQmhCGmx5"];
 
-StripeCard *card =      [[StripeCard alloc] init];
-card.number =           @"4111111111111111";
-card.name =             @"Bob Dylan";
-card.cardSecurityCode = "010";
-card.expiryMonth =      [NSNumber numberWithInteger:2];
-card.expiryYear =       [NSNumber numberWithInteger:2014];
+StripeCard *card =  [[StripeCard alloc] init];
+card.number =       @"4111111111111111";
+card.name =         @"Bob Dylan";
+card.securityCode = "010";
+card.expiryMonth =  [NSNumber numberWithInteger:2];
+card.expiryYear =   [NSNumber numberWithInteger:2014];
 
 [stripe performRequestWithCard:card 
                  amountInCents:[NSNumber numberWithInteger:200] 

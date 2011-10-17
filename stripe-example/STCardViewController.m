@@ -144,8 +144,8 @@
         card.expiryYear       = [NSNumber numberWithInteger:[[date objectAtIndex:1] integerValue]];
     }
     
-    card.name             = self.nameField.text;
-    card.cardSecurityCode = self.CVCField.text;
+    card.name         = self.nameField.text;
+    card.securityCode = self.CVCField.text;
     
     sender.enabled = NO;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;

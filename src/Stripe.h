@@ -6,7 +6,7 @@
 @property (strong, nonatomic) NSString *number;
 @property (strong, nonatomic) NSNumber *expiryMonth;
 @property (strong, nonatomic) NSNumber *expiryYear;
-@property (strong, nonatomic) NSString *cardSecurityCode;
+@property (strong, nonatomic) NSString *securityCode;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *addressLine1;
 @property (strong, nonatomic) NSString *addressLine2;
