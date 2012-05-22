@@ -35,7 +35,7 @@
                                                                                  kCFStringEncodingUTF8 );
 }
 
-- (NSData *)HTTPBodyWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency {
+- (NSData *)HTTPBodyWithCard:(StripeCard *)card currency:(NSString *)currency {
     NSMutableString *body = [NSMutableString string];
     NSDictionary *attributes = card.attributes;
 
@@ -52,12 +52,6 @@
         [body appendFormat:@"card[%@]=%@", [self escapedString:key], value];
     }
     
-    if (amount) {
-        if (body.length != 0)
-            [body appendString:@"&"];
-        [body appendFormat:@"amount=%@", amount];
-    }
-    
     if (currency) {
         if (body.length != 0)
             [body appendString:@"&"];
@@ -67,13 +61,13 @@
     return [body dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount currency:(NSString *)currency success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
+- (void)performRequestWithCard:(StripeCard *)card currency:(NSString *)currency success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
     NSURL *url = [[NSURL URLWithString:
                    [NSString stringWithFormat:kStripeAPIBase, [self escapedString:self.publishableKey]]]
                   URLByAppendingPathComponent:kStripeTokenPath];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPBody = [self HTTPBodyWithCard:card amountInCents:amount currency:currency];
+    request.HTTPBody = [self HTTPBodyWithCard:card currency:currency];
     
     [request setHTTPMethod:@"POST"];
     
@@ -103,8 +97,8 @@
     }];
 }
 
-- (void)performRequestWithCard:(StripeCard *)card amountInCents:(NSNumber *)amount success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
-    [self performRequestWithCard:card amountInCents:amount currency:@"usd" success:success error:error];
+- (void)performRequestWithCard:(StripeCard *)card success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
+    [self performRequestWithCard:card currency:@"usd" success:success error:error];
 }
 
 @end

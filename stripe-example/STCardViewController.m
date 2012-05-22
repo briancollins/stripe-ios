@@ -158,7 +158,6 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     [self.stripeConnection performRequestWithCard:card 
-                                    amountInCents:[NSNumber numberWithInteger:200] 
                                           success:^(StripeResponse *response) 
      {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
