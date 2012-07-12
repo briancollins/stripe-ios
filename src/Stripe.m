@@ -35,7 +35,7 @@
                                                                                  kCFStringEncodingUTF8 );
 }
 
-- (NSData *)HTTPBodyWithCard:(StripeCard *)card currency:(NSString *)currency {
+- (NSData *)HTTPBodyWithCard:(StripeCard *)card {
     NSMutableString *body = [NSMutableString string];
     NSDictionary *attributes = card.attributes;
 
@@ -52,22 +52,16 @@
         [body appendFormat:@"card[%@]=%@", [self escapedString:key], value];
     }
     
-    if (currency) {
-        if (body.length != 0)
-            [body appendString:@"&"];
-        [body appendFormat:@"currency=%@", currency];
-    }
-    
     return [body dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (void)performRequestWithCard:(StripeCard *)card currency:(NSString *)currency success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
+- (void)performRequestWithCard:(StripeCard *)card success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
     NSURL *url = [[NSURL URLWithString:
                    [NSString stringWithFormat:kStripeAPIBase, [self escapedString:self.publishableKey]]]
                   URLByAppendingPathComponent:kStripeTokenPath];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPBody = [self HTTPBodyWithCard:card currency:currency];
+    request.HTTPBody = [self HTTPBodyWithCard:card];
     
     [request setHTTPMethod:@"POST"];
     
@@ -95,10 +89,6 @@
             error([NSError errorWithDomain:@"Stripe" code:0 userInfo:[unserialized objectForKey:@"error"]]);
         }
     }];
-}
-
-- (void)performRequestWithCard:(StripeCard *)card success:(void (^)(StripeResponse *response))success error:(void (^)(NSError *error))error {
-    [self performRequestWithCard:card currency:@"usd" success:success error:error];
 }
 
 @end
@@ -138,12 +128,11 @@
 @end
 
 @implementation StripeResponse
-@synthesize createdAt, currency, amount, isUsed, isLiveMode, token, card;
+@synthesize createdAt, amount, isUsed, isLiveMode, token, card;
 
 - (id)initWithResponseDictionary:(NSDictionary *)response {
     if ((self = [super init])) {
         self.createdAt = [response objectForKey:@"created"];
-        self.currency = [response objectForKey:@"currency"];
         self.isUsed = [[response objectForKey:@"used"] boolValue];
         self.amount = [response objectForKey:@"amount"];
         self.isLiveMode = [[response objectForKey:@"livemode"] boolValue];

@@ -12,7 +12,7 @@
 
 - (id)init {
     if ((self = [super initWithStyle:UITableViewStylePlain])) {
-        self.stripeConnection = [StripeConnection connectionWithPublishableKey:@"pk_dl4LcpeAxUEPHN3FxzuAQQmhCGmx5"];
+        self.stripeConnection = [StripeConnection connectionWithPublishableKey:@"pk_TnhRcCjprRi5m4bld3H2jhYFw6OQM"];
         self.navigationItem.rightBarButtonItem = 
         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                       target:self
