@@ -14,7 +14,6 @@ card.expiryMonth =  [NSNumber numberWithInteger:2];
 card.expiryYear =   [NSNumber numberWithInteger:2014];
 
 [stripe performRequestWithCard:card 
-                 amountInCents:[NSNumber numberWithInteger:200] 
                        success:^(StripeResponse *token) 
      {
          /* handle success */
