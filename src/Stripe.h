@@ -25,7 +25,7 @@
 
 @interface StripeResponse : NSObject
 @property (strong, nonatomic) NSNumber *createdAt;
-@property (strong, nonatomic) NSString *currency;
+//@property (strong, nonatomic) NSString *currency;
 @property (strong, nonatomic) NSNumber *amount;
 @property (nonatomic) BOOL isUsed;
 @property (nonatomic) BOOL isLiveMode;
